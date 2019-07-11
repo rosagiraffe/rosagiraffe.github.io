@@ -141,30 +141,30 @@ function haus() {
 	//2.
 
 	haus_graphic.stroke(0);
-	haus_graphic.line(90, 500+(rechteck/2), width-90, 500+(rechteck/2));
-	haus_graphic.noStroke();
+	haus_graphic.line(50, 100, 1024-50, 100);
 
 	//Haus
+	haus_graphic.noStroke();
 	haus_graphic.fill(255);
-	haus_graphic.rect(width/2-(rechteck/2), 100, rechteck, rechteck);
-	haus_graphic.triangle(width/2-(rechteck/2), 100, width/2-(rechteck/2)+rechteck/2, 450, width/2-(rechteck/2)+rechteck, 500);
+	haus_graphic.rect(420, 50, rechteck, rechteck);
+	haus_graphic.triangle(420, 50, 420+rechteck, 50, 420+rechteck/2, 10);
 
 	//Frauen außer Haus
 	haus_graphic.fill(255, 200, 0, theColour);
-	haus_graphic.circle(200, 400, 20);
-	haus_graphic.circle(230, 430, 20);
-	haus_graphic.circle(300, 650, 20);
-	haus_graphic.circle(700, 420, 20);
-	haus_graphic.circle(720, 630+schieben2, 20);
-	haus_graphic.circle(300, 560+schieben2, 20);
-	haus_graphic.circle(840, 510+schieben2, 20);
-	haus_graphic.circle(740, 520+schieben2, 20);
-	haus_graphic.circle(890, 520+schieben2, 20);
-	haus_graphic.circle(800, 560+schieben2, 20);
-	haus_graphic.circle(720, 570+schieben2, 20);
-	haus_graphic.circle(180, 580+schieben2, 20);
-	haus_graphic.circle(270, 600+schieben2, 20);
-	haus_graphic.circle(980, 400+schieben2, 20);
+	haus_graphic.circle(10, 20, 20);
+	haus_graphic.circle(20, 30, 20);
+	haus_graphic.circle(30, 40, 20);
+	haus_graphic.circle(40, 50, 20);
+	haus_graphic.circle(30, 60, 20);
+	haus_graphic.circle(50, 70, 20);
+	haus_graphic.circle(0, 510, 20);
+	haus_graphic.circle(0, 520, 20);
+	haus_graphic.circle(0, 520, 20);
+	haus_graphic.circle(800, 560, 20);
+	haus_graphic.circle(720, 570, 20);
+	haus_graphic.circle(180, 580, 20);
+	haus_graphic.circle(270, 600, 20);
+	haus_graphic.circle(980, 400, 20);
 
 	//Frauen bleiben
 	haus_graphic.fill(255, 200, 0)
