@@ -137,8 +137,8 @@ function haus() {
 	haus_graphic.rect(0, 0, 1024, 330);
 
 
-	var theColour = map(mouseX, 1024, 0, 0, 255);
-	var theColour2 = map(mouseX, 0, 1024, 0, 255);
+	var theColour = map(mouseX, 1024-80, 80, 0, 255);
+	var theColour2 = map(mouseX, 80, 1024-80, 0, 255);
 
 	haus_graphic.fill(200);
 	haus_graphic.noStroke();
@@ -156,43 +156,84 @@ function haus() {
 
 	//Frauen außer Haus
 	haus_graphic.fill(255, 200, 0, theColour);
-	haus_graphic.circle(10, 20, 20);
-	haus_graphic.circle(20, 30, 20);
-	haus_graphic.circle(30, 40, 20);
-	haus_graphic.circle(40, 50, 20);
-	haus_graphic.circle(30, 60, 20);
-	haus_graphic.circle(50, 70, 20);
-	haus_graphic.circle(0, 10, 20);
-	haus_graphic.circle(0, 20, 20);
-	haus_graphic.circle(0, 20, 20);
-	haus_graphic.circle(80, 50, 20);
-	haus_graphic.circle(70, 50, 20);
-	haus_graphic.circle(10, 50, 20);
-	haus_graphic.circle(20, 60, 20);
-	haus_graphic.circle(80, 40, 20);
+	haus_graphic.circle(60, 60, 20);
+	haus_graphic.circle(950, 300, 20);
+	haus_graphic.circle(900, 40, 20);
+	haus_graphic.circle(820, 260, 20);
+	haus_graphic.circle(600, 30, 20);
+	haus_graphic.circle(810, 200, 20);
+	haus_graphic.circle(800, 120, 20);
+	haus_graphic.circle(860, 220, 20);
+	haus_graphic.circle(880, 290, 20);
+	haus_graphic.circle(700, 150, 20);
+	haus_graphic.circle(740, 250, 20);
+	haus_graphic.circle(780, 50, 20);
+	haus_graphic.circle(920, 160, 20);
+	haus_graphic.circle(660, 140, 20);
+	haus_graphic.circle(670, 220, 20);
+	haus_graphic.circle(30, 150, 20);
+	haus_graphic.circle(70, 120, 20);
+	haus_graphic.circle(100, 150, 20);
+	haus_graphic.circle(120, 160, 20);
+	haus_graphic.circle(180, 240, 20);
+	haus_graphic.circle(200, 220, 20);
+	haus_graphic.circle(280, 150, 20);
+	haus_graphic.circle(270, 90, 20);
+	haus_graphic.circle(210, 150, 20);
+	haus_graphic.circle(320, 160, 20);
+	haus_graphic.circle(380, 140, 20);
+	haus_graphic.circle(280, 40, 20);
 
 	//Frauen bleiben
 	haus_graphic.fill(255, 200, 0)
-	haus_graphic.circle(width/2-20, 30, 20);
-	haus_graphic.circle(220, 20, 20);
-	haus_graphic.circle(870, 30, 20);
+	haus_graphic.circle(500, 150, 20);
+	haus_graphic.circle(220, 280, 20);
+	haus_graphic.circle(870, 200, 20);
+	haus_graphic.circle(280, 40, 20);
+
 
 	//Frauen im Haus
 	haus_graphic.fill(255, 200, 0, theColour2);
-	haus_graphic.circle(width/2-40, 10, 20);
-	haus_graphic.circle(width/2-60, 30, 20);
-	haus_graphic.circle(width/2-50, 30, 20);
-	haus_graphic.circle(width/2-40, 40, 20);
-	haus_graphic.circle(width/2-30, 30, 20);
-	haus_graphic.circle(width/2-20, 20, 20);
-	haus_graphic.circle(width/2-10, 40, 20);
-	haus_graphic.circle(width/2, 50, 20);
-	haus_graphic.circle(width/2+10, 63, 20);
-	haus_graphic.circle(width/2+20, 59, 20);
-	haus_graphic.circle(width/2+30, 61, 20);
-	haus_graphic.circle(width/2+40, 53, 20);
-	haus_graphic.circle(width/2+50, 62, 20);
-	haus_graphic.circle(width/2+60, 50, 20);
+	haus_graphic.circle(450, 100, 20);
+	haus_graphic.circle(440, 220, 20);
+	haus_graphic.circle(445, 195, 20);
+	haus_graphic.circle(450, 100, 20);
+	haus_graphic.circle(460, 160, 20);
+	haus_graphic.circle(470, 130, 20);
+	haus_graphic.circle(480, 180, 20);
+	haus_graphic.circle(490, 210, 20);
+	haus_graphic.circle(500, 190, 20);
+	haus_graphic.circle(510, 125, 20);
+	haus_graphic.circle(520, 160, 20);
+	haus_graphic.circle(530, 225, 20);
+	haus_graphic.circle(540, 200, 20);
+	haus_graphic.circle(555, 140, 20);
+	haus_graphic.circle(455, 235, 20);
+	haus_graphic.circle(445, 130, 20);
+	haus_graphic.circle(475, 90, 20);
+	haus_graphic.circle(495, 80, 20);
+	haus_graphic.circle(500, 235, 20);
+	haus_graphic.circle(500, 105, 20);
+	haus_graphic.circle(540, 170, 20);
+	haus_graphic.circle(525, 100, 20);
+	haus_graphic.circle(435, 170, 20);
+	haus_graphic.circle(545, 120, 20);
+	haus_graphic.circle(555, 140, 20);
+	haus_graphic.circle(435, 180, 20);
+	haus_graphic.circle(511, 140, 20);
+
+	// haus_graphic.circle(width/2-50, 30, 20);
+	// haus_graphic.circle(width/2-40, 40, 20);
+	// haus_graphic.circle(width/2-30, 30, 20);
+	// haus_graphic.circle(width/2-20, 20, 20);
+	// haus_graphic.circle(width/2-10, 40, 20);
+	// haus_graphic.circle(width/2, 50, 20);
+	// haus_graphic.circle(width/2+10, 63, 20);
+	// haus_graphic.circle(width/2+20, 59, 20);
+	// haus_graphic.circle(width/2+30, 61, 20);
+	// haus_graphic.circle(width/2+40, 53, 20);
+	// haus_graphic.circle(width/2+50, 62, 20);
+	// haus_graphic.circle(width/2+60, 50, 20);
 
 	// for (var c = 30; c < width-20 && c > 0; c = c + 40) {
 	//   for (var d = 515; d < 650 && d > 0; d = d + 40) {
