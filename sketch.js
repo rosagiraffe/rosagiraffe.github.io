@@ -4,7 +4,6 @@
 //
 /////////////////////////////////////////////
 
-var canvas;
 var rechteck = 150;
 var canvasLang = 4000;
 
@@ -18,9 +17,12 @@ let timer3 = 7;
 
 
 //Nach unten verschieben
-var schieben1 = 700;
-var schieben2 = 1000;
-var schieben3 = 1300;
+var schieben1 = 0;
+var schieben2 = 0;
+var schieben3 = 0;
+
+var haus_graphic;
+var carechain_graphic;
 
 /////////////////////////////////////////////
 //
@@ -29,9 +31,9 @@ var schieben3 = 1300;
 /////////////////////////////////////////////
 
 function preload() {
-img = loadImage("assets/kachel.png");
-img1 = loadImage("assets/head_line.png");
-fonty = loadFont('assets/TabletGothicRegular.ttf');
+// img = loadImage("assets/kachel.png");
+// img1 = loadImage("assets/head_line.png");
+// fonty = loadFont('assets/TabletGothicRegular.ttf');
 }
 
 /////////////////////////////////////////////
@@ -43,8 +45,20 @@ fonty = loadFont('assets/TabletGothicRegular.ttf');
 function setup() {
 	// return;
 	// canvas = createCanvas(0, canvasLang);
-	canvas.parent('container')
+	// canvas.parent('container')
+ 	noCanvas();
+
+	haus_graphic = createGraphics(1024,600);
+	haus_graphic.parent('haus-container');
+
+	carechain_graphic = createGraphics(600,600);
+	carechain_graphic.parent('carechain-container');
+
+	//hier mehr grahic definieren
+
+
 	frameRate(60);
+
 
 }
 
@@ -64,43 +78,43 @@ function draw() {
 
 	// return;
 
-	background(255);
+	// background(255);
 
 	// kacheln();
 	haus();
-	arbeit();
+	// arbeit();
 	carechain();
-	vektor();
+	// vektor();
 	
 	//
 	// Text
 	//
 
-	fill(255,200,0);
-	noStroke();
-	rect(165, 30, 148, 30);
+	// fill(255,200,0);
+	// noStroke();
+	// rect(165, 30, 148, 30);
 
-	textSize(26);
-	strokeWeight(0.5);
-	fill(0);
+	// textSize(26);
+	// strokeWeight(0.5);
+	// fill(0);
 
-	textFont(fonty);
+	// textFont(fonty);
 
-	textAlign(CENTER);
-	text('Anteil Frauen an:', 0, schieben1-20, width);
-	text('Care-Chain', 0, 800+schieben3, width);
-	text('Wo arbeiten Frauen?', 0, 420+schieben2, width);
+	// textAlign(CENTER);
+	// text('Anteil Frauen an:', 0, schieben1-20, width);
+	// text('Care-Chain', 0, 800+schieben3, width);
+	// text('Wo arbeiten Frauen?', 0, 420+schieben2, width);
 
-	textSize(16);
+	// textSize(16);
 	
-	text('Arbeitszeit', -270, 220+schieben1, width);
-	text('Gehalt', -0, 220+schieben1, width);
-	text('Eigentum', 270, 220+schieben1, width);
-	text('1737', -480, 580+schieben2, width);
-	text('1911', 480, 580+schieben2, width);
+	// text('Arbeitszeit', -270, 220+schieben1, width);
+	// text('Gehalt', -0, 220+schieben1, width);
+	// text('Eigentum', 270, 220+schieben1, width);
+	// text('1737', -480, 580+schieben2, width);
+	// text('1911', 480, 580+schieben2, width);
 
 	
-	text('Arbeit und Frauen', -400, 50, width);
+	// text('Arbeit und Frauen', -400, 50, width);
 
 
 
@@ -112,6 +126,87 @@ function draw() {
 	//
 
 	//print(timer);
+}
+
+
+function haus() {
+	//2. Im Haus und außer Haus
+
+	var theColour = map(mouseX, width-420, 20, 0, 255);
+	var theColour2 = map(mouseX, 420,  width, 0, 255);
+
+	haus_graphic.fill(200);
+	haus_graphic.noStroke();
+	// rect(0, 350, width, 350);
+	//2.
+
+	haus_graphic.stroke(0);
+	haus_graphic.line(90, 500+(rechteck/2), width-90, 500+(rechteck/2));
+	haus_graphic.noStroke();
+
+	//Haus
+	haus_graphic.fill(255);
+	haus_graphic.rect(width/2-(rechteck/2), 100, rechteck, rechteck);
+	haus_graphic.triangle(width/2-(rechteck/2), 100, width/2-(rechteck/2)+rechteck/2, 450, width/2-(rechteck/2)+rechteck, 500);
+
+	//Frauen außer Haus
+	haus_graphic.fill(255, 200, 0, theColour);
+	haus_graphic.circle(200, 400, 20);
+	haus_graphic.circle(230, 430, 20);
+	haus_graphic.circle(300, 650, 20);
+	haus_graphic.circle(700, 420, 20);
+	haus_graphic.circle(720, 630+schieben2, 20);
+	haus_graphic.circle(300, 560+schieben2, 20);
+	haus_graphic.circle(840, 510+schieben2, 20);
+	haus_graphic.circle(740, 520+schieben2, 20);
+	haus_graphic.circle(890, 520+schieben2, 20);
+	haus_graphic.circle(800, 560+schieben2, 20);
+	haus_graphic.circle(720, 570+schieben2, 20);
+	haus_graphic.circle(180, 580+schieben2, 20);
+	haus_graphic.circle(270, 600+schieben2, 20);
+	haus_graphic.circle(980, 400+schieben2, 20);
+
+	//Frauen bleiben
+	haus_graphic.fill(255, 200, 0)
+	haus_graphic.circle(width/2-20, 530+schieben2, 20);
+	haus_graphic.circle(220, 660+schieben2, 20);
+	haus_graphic.circle(870, 500+schieben2, 20);
+
+	//Frauen im Haus
+	haus_graphic.fill(255, 200, 0, theColour2);
+	haus_graphic.circle(width/2-40, 500+schieben2, 20);
+	haus_graphic.circle(width/2-60, 560+schieben2, 20);
+	haus_graphic.circle(width/2-50, 630+schieben2, 20);
+	haus_graphic.circle(width/2-40, 580+schieben2, 20);
+	haus_graphic.circle(width/2-30, 610+schieben2, 20);
+	haus_graphic.circle(width/2-20, 560+schieben2, 20);
+	haus_graphic.circle(width/2-10, 480+schieben2, 20);
+	haus_graphic.circle(width/2, 500+schieben2, 20);
+	haus_graphic.circle(width/2+10, 630+schieben2, 20);
+	haus_graphic.circle(width/2+20, 590+schieben2, 20);
+	haus_graphic.circle(width/2+30, 610+schieben2, 20);
+	haus_graphic.circle(width/2+40, 530+schieben2, 20);
+	haus_graphic.circle(width/2+50, 620+schieben2, 20);
+	haus_graphic.circle(width/2+60, 580+schieben2, 20);
+
+	// for (var c = 30; c < width-20 && c > 0; c = c + 40) {
+	//   for (var d = 515; d < 650 && d > 0; d = d + 40) {
+	// fill(40, 53, 131, theColour2);
+	// 	circle(c, d, 20);
+	// }
+	// }
+
+	//Frauen
+	// for (var a = 30; a < width-20 && a > 0; a = a + 40) {
+	//   for (var b = 515; b < 650 && b > 0; b = b + 40) {
+	// 	fill(255, 200, 0, theColour);
+	// 	circle(a, b, 20);
+	// }
+	// }
+
+	haus_graphic.style('display','block');
+
+
 }
 
 /////////////////////////////////////////////
