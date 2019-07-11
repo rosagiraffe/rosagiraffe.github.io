@@ -133,8 +133,8 @@ function draw() {
 function haus() {
 	//2. Im Haus und außer Haus
 
-	var theColour = map(mouseX, width-420, 20, 0, 255);
-	var theColour2 = map(mouseX, 420,  width, 0, 255);
+	var theColour = map(mouseX, 1024, 0, 0, 255);
+	var theColour2 = map(mouseX, 0, 1024, 0, 255);
 
 	haus_graphic.fill(200);
 	haus_graphic.noStroke();
@@ -158,37 +158,37 @@ function haus() {
 	haus_graphic.circle(40, 50, 20);
 	haus_graphic.circle(30, 60, 20);
 	haus_graphic.circle(50, 70, 20);
-	haus_graphic.circle(0, 510, 20);
-	haus_graphic.circle(0, 520, 20);
-	haus_graphic.circle(0, 520, 20);
-	haus_graphic.circle(800, 560, 20);
-	haus_graphic.circle(720, 570, 20);
-	haus_graphic.circle(180, 580, 20);
-	haus_graphic.circle(270, 600, 20);
-	haus_graphic.circle(980, 400, 20);
+	haus_graphic.circle(0, 10, 20);
+	haus_graphic.circle(0, 20, 20);
+	haus_graphic.circle(0, 20, 20);
+	haus_graphic.circle(80, 50, 20);
+	haus_graphic.circle(70, 50, 20);
+	haus_graphic.circle(10, 50, 20);
+	haus_graphic.circle(20, 60, 20);
+	haus_graphic.circle(80, 40, 20);
 
 	//Frauen bleiben
 	haus_graphic.fill(255, 200, 0)
-	haus_graphic.circle(width/2-20, 530+schieben2, 20);
-	haus_graphic.circle(220, 660+schieben2, 20);
-	haus_graphic.circle(870, 500+schieben2, 20);
+	haus_graphic.circle(width/2-20, 30, 20);
+	haus_graphic.circle(220, 20, 20);
+	haus_graphic.circle(870, 30, 20);
 
 	//Frauen im Haus
 	haus_graphic.fill(255, 200, 0, theColour2);
-	haus_graphic.circle(width/2-40, 500+schieben2, 20);
-	haus_graphic.circle(width/2-60, 560+schieben2, 20);
-	haus_graphic.circle(width/2-50, 630+schieben2, 20);
-	haus_graphic.circle(width/2-40, 580+schieben2, 20);
-	haus_graphic.circle(width/2-30, 610+schieben2, 20);
-	haus_graphic.circle(width/2-20, 560+schieben2, 20);
-	haus_graphic.circle(width/2-10, 480+schieben2, 20);
-	haus_graphic.circle(width/2, 500+schieben2, 20);
-	haus_graphic.circle(width/2+10, 630+schieben2, 20);
-	haus_graphic.circle(width/2+20, 590+schieben2, 20);
-	haus_graphic.circle(width/2+30, 610+schieben2, 20);
-	haus_graphic.circle(width/2+40, 530+schieben2, 20);
-	haus_graphic.circle(width/2+50, 620+schieben2, 20);
-	haus_graphic.circle(width/2+60, 580+schieben2, 20);
+	haus_graphic.circle(width/2-40, 10, 20);
+	haus_graphic.circle(width/2-60, 30, 20);
+	haus_graphic.circle(width/2-50, 30, 20);
+	haus_graphic.circle(width/2-40, 40, 20);
+	haus_graphic.circle(width/2-30, 30, 20);
+	haus_graphic.circle(width/2-20, 20, 20);
+	haus_graphic.circle(width/2-10, 40, 20);
+	haus_graphic.circle(width/2, 50, 20);
+	haus_graphic.circle(width/2+10, 63, 20);
+	haus_graphic.circle(width/2+20, 59, 20);
+	haus_graphic.circle(width/2+30, 61, 20);
+	haus_graphic.circle(width/2+40, 53, 20);
+	haus_graphic.circle(width/2+50, 62, 20);
+	haus_graphic.circle(width/2+60, 50, 20);
 
 	// for (var c = 30; c < width-20 && c > 0; c = c + 40) {
 	//   for (var d = 515; d < 650 && d > 0; d = d + 40) {
@@ -234,16 +234,16 @@ function arbeit() {
 	// Arbeitszeit
 
 	arbeit_graphic.fill(255,200,0); //gelb
-	arbeit_graphic.rect(200, 0, rechteck, rechteck);
+	arbeit_graphic.rect(230, 50, rechteck, rechteck);
 	arbeit_graphic.fill(255); //white
 
 	
 	// Animation Arbeitszeit
 	if (x > rechteck*(1/3)) {
-		arbeit_graphic.rect(200, 0, rechteck, x);
+		arbeit_graphic.rect(230, 50, rechteck, x);
 		x = x - 0.3;
 	}	else{
-		arbeit_graphic.rect(200, 0, rechteck, rechteck*(1/3));
+		arbeit_graphic.rect(230, 50, rechteck, rechteck*(1/3));
 		
 		if (frameCount % 60 == 0 && timer1 > 0) { 
     		timer1 --;
@@ -261,15 +261,15 @@ function arbeit() {
 	/////////////////////////////////////////////
 	// Gehalt
 		arbeit_graphic.fill(255,200,0); // GELB
-		arbeit_graphic.rect(50, 50, rechteck, rechteck);
+		arbeit_graphic.rect(450, 50, rechteck, rechteck);
 		arbeit_graphic.fill(255); // WHITE
 	// Animation Arbeitszeit
 
 	if (y < rechteck*0.9) {
-		arbeit_graphic.rect(50, 50, rechteck, y);
+		arbeit_graphic.rect(450, 50, rechteck, y);
 		y = y + 0.8;
 	} else {
-		arbeit_graphic.rect(50, 50, rechteck, rechteck*0.9);
+		arbeit_graphic.rect(450, 50, rechteck, rechteck*0.9);
 		
 		if (frameCount % 60 == 0 && timer2 > 0) { 
     		timer2 --;
@@ -285,15 +285,15 @@ function arbeit() {
 	/////////////////////////////////////////////
 	// Eigentum
 		arbeit_graphic.fill(255,200,0); // GELB
-		arbeit_graphic.rect(80, 80, rechteck, rechteck);
+		arbeit_graphic.rect(670, 50, rechteck, rechteck);
 		arbeit_graphic.fill(255); // WHITE
 	
 	// Animation Gehalt
 	if (z < rechteck*0.99) {
-		arbeit_graphic.rect(80, 80, rechteck, z);
+		arbeit_graphic.rect(670, 50, rechteck, z);
 		z = z + 1.2;
 	} else {
-		arbeit_graphic.rect(80, 80, rechteck, rechteck*0.99);
+		arbeit_graphic.rect(670, 50, rechteck, rechteck*0.99);
 		
 		if (frameCount % 60 == 0 && timer3 > 0) { 
     		timer3 --;
@@ -393,15 +393,15 @@ function carechain() {
 	carechain_graphic.fill(255);
 	carechain_graphic.noStroke();
 
-	carechain_graphic.rect(20, 20, rechteck, rechteck); //1.
-	carechain_graphic.triangle(width/4+60, 900+schieben3, width/4+60+rechteck/2, 850+schieben3, width/4+60+rechteck, 900+schieben3);
+	carechain_graphic.rect(340, 100, rechteck, rechteck); //1.
+	carechain_graphic.triangle(340, 100, 340+rechteck, 100, 340+rechteck/2, 60);
 
-	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
-	triangle(width/4+120+rechteck, 900+schieben3, width/4+120+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+rechteck, 900+schieben3);
-	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
+	carechain_graphic.rect(520, 100, rechteck, rechteck); //2. 
+	carechain_graphic.triangle(520, 100, 520+rechteck, 100, 520+rechteck/2, 60);
+	// carechain_graphic.rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
 
-	rect(width/4+120+rechteck+60+rechteck, 900+schieben3, rechteck, rechteck); //3.
-	triangle(width/4+120+rechteck+60+rechteck, 900+schieben3, width/4+120+rechteck+60+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+60+rechteck+rechteck, 900+schieben3);
+	carechain_graphic.rect(700, 100, rechteck, rechteck); //3.
+	carechain_graphic.triangle(700, 100, 700+rechteck, 100, 700+rechteck/2, 60);
 
 	// Linien
 	 // stroke(0);
@@ -448,19 +448,19 @@ function carechain() {
 function carechainScene1() {
 
 	// 2. Kreis im 1. Häuschen
-	stroke(255,200,0);
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.stroke(255,200,0);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(420, 100+rechteck/2, rechteck/2);
 
 	// 2. im 2. Häuschen
-	stroke(255,200,0);
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.stroke(255,200,0);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
 	// 2. im 3. Häuschen
-	stroke(255,200,0);
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.stroke(255,200,0);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
 }
 
 function carechainScene2() {
@@ -472,23 +472,23 @@ function carechainScene2() {
 	// circle(width/4+60+rechteck/2, 975, rechteck/2);
 
 	// Kreis im 2. Häuschen
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
 	// 2. im 3. Häuschen
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
 
-	fill(255, 200, 0);
-	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
 }
 
 function carechainScene3() {
 
 	// 2. Kreis im 1. Häuschen
-	stroke(255,200,0);
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.stroke(255,200,0);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
 
 	// 2. im 2. Häuschen
 	// stroke(255,200,0);
@@ -497,23 +497,23 @@ function carechainScene3() {
  // 	circle(width/4+60+rechteck/2+60+rechteck, 975, rechteck/2);
 
 	// 2. im 3. Häuschen
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
 
-	fill(255, 200, 0);
-	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
 }
 
 function carechainScene4() {
 
 	// 2. Kreis im 1. Häuschen
-	stroke(255,200,0);
-	fill(255, 200, 0);
-	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.stroke(255,200,0);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
 
 	// 2. im 2. Häuschen
-	fill(255, 200, 0);
- 	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+ 	carechain_graphic.circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
 	// 2. im 3. Häuschen
 	// stroke(255,200,0);
@@ -524,8 +524,8 @@ function carechainScene4() {
  fill(0);
  //text("?", width/4+60+rechteck/2+60+rechteck+60+rechteck, 985);
 
-	fill(255, 200, 0);
-	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.fill(255, 200, 0);
+	carechain_graphic.circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
 }
 
 
