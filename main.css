@@ -7,6 +7,17 @@ body {
 	src: url("assets/TabletGothicRegular.ttf");
 }
 
+a.info span {
+	display: none;
+}
+
+a.info:hover span {
+	display: block;
+	position: absolute;
+	margin-top:-14em;
+}
+
+
 .verlauf{
 background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.9), rgba(255,255,255,1));
 }
@@ -101,6 +112,9 @@ figcaption {
 	margin: 0 1.6em 1.2em 0;
 }
 
+sup {
+	line-height: 0px;
+}
 .zitat {
 	font-size: 20px;
 	line-height: 135%;
