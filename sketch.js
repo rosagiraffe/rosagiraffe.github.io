@@ -140,7 +140,7 @@ function haus() {
 	var theColour = map(mouseX, 1024-80, 80, 0, 255);
 	var theColour2 = map(mouseX, 80, 1024-80, 0, 255);
 
-	haus_graphic.fill(200);
+	haus_graphic.fill("#dadad9");
 	haus_graphic.noStroke();
 	// rect(0, 350, width, 350);
 	//2.
@@ -158,7 +158,7 @@ function haus() {
 	//Frauen außer Haus
 	haus_graphic.fill(255, 200, 0, theColour);
 	haus_graphic.circle(60, 60, 20);
-	haus_graphic.circle(950, 300, 20);
+	haus_graphic.circle(940, 280, 20);
 	haus_graphic.circle(900, 40, 20);
 	haus_graphic.circle(820, 260, 20);
 	haus_graphic.circle(600, 30, 20);
@@ -169,19 +169,19 @@ function haus() {
 	haus_graphic.circle(700, 150, 20);
 	haus_graphic.circle(740, 250, 20);
 	haus_graphic.circle(780, 50, 20);
-	haus_graphic.circle(920, 160, 20);
+	haus_graphic.circle(920, 180, 20);
 	haus_graphic.circle(660, 140, 20);
 	haus_graphic.circle(670, 220, 20);
 	haus_graphic.circle(30, 150, 20);
 	haus_graphic.circle(70, 120, 20);
-	haus_graphic.circle(100, 150, 20);
-	haus_graphic.circle(120, 160, 20);
+	haus_graphic.circle(150, 190, 20);
+	haus_graphic.circle(120, 180, 20);
 	haus_graphic.circle(180, 240, 20);
 	haus_graphic.circle(200, 220, 20);
-	haus_graphic.circle(280, 150, 20);
+	haus_graphic.circle(280, 130, 20);
 	haus_graphic.circle(270, 90, 20);
-	haus_graphic.circle(210, 150, 20);
-	haus_graphic.circle(320, 160, 20);
+	haus_graphic.circle(210, 110, 20);
+	haus_graphic.circle(320, 180, 20);
 	haus_graphic.circle(380, 140, 20);
 	haus_graphic.circle(280, 40, 20);
 
@@ -443,8 +443,10 @@ function arbeit() {
 // }
 
 function carechain() {
-	// 3. Häuschen die nur ein mal gemalt werden
 
+		
+
+	// 3. Häuschen die nur ein mal gemalt werden
 
 	carechain_graphic.fill(255);
 	carechain_graphic.noStroke();
@@ -459,13 +461,7 @@ function carechain() {
 	carechain_graphic.rect(700, 100, rechteck, rechteck); //3.
 	carechain_graphic.triangle(700, 100, 700+rechteck, 100, 700+rechteck/2, 60);
 
-	// Linien
-	 // stroke(0);
-	 // strokeWeight(1);
-	 // line(250, 975, 350, 975);
-	 // line(460, 975, 560, 975);
-	 // line(670, 975, 770, 975);
-
+	
 	// Wenn eventCounter = 0 zeichne Scene1
 	if(eventCounter == 0){
 		carechainScene1();
@@ -483,25 +479,36 @@ function carechain() {
 		carechainScene4();
 	}
 
+// Linien
+	 carechain_graphic.stroke(0);
+	 carechain_graphic.line(260, 175, 350, 175);
+	carechain_graphic.line(260+200, 175, 350+200, 175);
+	 carechain_graphic.line(260+380, 175, 350+380, 175);
+	
+
+
 	carechain_graphic.style('display','block');
 
 
 }
 
 
-// function mousePressed() {
+function mousePressed() {
  	
-//  	eventCounter++;
+ 	eventCounter++;
 
-//  	if(eventCounter == 4){
-//  		eventCounter = 0;
-//  	}
+ 	if(eventCounter == 4){
+ 		eventCounter = 0;
+ 	}
 
-// 	print('Clicks ' + eventCounter);
+	// print('Clicks ' + eventCounter);
 
-//}
+}
 
 function carechainScene1() {
+fill(255);
+stroke(255);
+	carechain_graphic.circle(200, 100+rechteck/2, rechteck/2);
 
 	// 2. Kreis im 1. Häuschen
 	carechain_graphic.stroke(255,200,0);
@@ -544,7 +551,7 @@ function carechainScene3() {
 	// 2. Kreis im 1. Häuschen
 	carechain_graphic.stroke(255,200,0);
 	carechain_graphic.fill(255, 200, 0);
-	carechain_graphic.circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.circle(320+95, 100+rechteck/2, rechteck/2);
 
 	// 2. im 2. Häuschen
 	// stroke(255,200,0);
@@ -557,7 +564,7 @@ function carechainScene3() {
 	carechain_graphic.circle(700+75, 100+rechteck/2, rechteck/2);
 
 	carechain_graphic.fill(255, 200, 0);
-	carechain_graphic.circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.circle(200, 100+rechteck/2, rechteck/2);
 }
 
 function carechainScene4() {
@@ -581,7 +588,7 @@ function carechainScene4() {
  //text("?", width/4+60+rechteck/2+60+rechteck+60+rechteck, 985);
 
 	carechain_graphic.fill(255, 200, 0);
-	carechain_graphic.circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+	carechain_graphic.circle(200, 100+rechteck/2, rechteck/2);
 }
 
 
