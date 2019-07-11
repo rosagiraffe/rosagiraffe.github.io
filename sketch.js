@@ -21,9 +21,9 @@ var schieben1 = 0;
 var schieben2 = 0;
 var schieben3 = 0;
 
+var arbeit_graphic;
 var haus_graphic;
 var carechain_graphic;
-var 
 /////////////////////////////////////////////
 //
 // Ende local Variablen
@@ -228,23 +228,22 @@ function haus() {
 // }
 
 function arbeit() {
-	noStroke();
+	arbeit_graphic.noStroke();
 
 	/////////////////////////////////////////////
 	// Arbeitszeit
 
-	fill(255,200,0); //gelb
-	rect(width/4-rechteck/2, schieben1, rechteck, rechteck);
-
-	fill(255); //white
+	arbeit_graphic.fill(255,200,0); //gelb
+	arbeit_graphic.rect(200, 0, rechteck, rechteck);
+	arbeit_graphic.fill(255); //white
 
 	
 	// Animation Arbeitszeit
 	if (x > rechteck*(1/3)) {
-		rect(width/4-rechteck/2, schieben1, rechteck, x);
+		arbeit_graphic.rect(200, 0, rechteck, x);
 		x = x - 0.3;
 	}	else{
-		rect(width/4-rechteck/2, schieben1, rechteck, rechteck*(1/3));
+		arbeit_graphic.rect(200, 0, rechteck, rechteck*(1/3));
 		
 		if (frameCount % 60 == 0 && timer1 > 0) { 
     		timer1 --;
@@ -261,16 +260,16 @@ function arbeit() {
 
 	/////////////////////////////////////////////
 	// Gehalt
-		fill(255,200,0); // GELB
-		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck);
-		fill(255); // WHITE
+		arbeit_graphic.fill(255,200,0); // GELB
+		arbeit_graphic.rect(50, 50, rechteck, rechteck);
+		arbeit_graphic.fill(255); // WHITE
 	// Animation Arbeitszeit
 
 	if (y < rechteck*0.9) {
-		rect(width/4*2-rechteck/2, schieben1, rechteck, y);
+		arbeit_graphic.rect(50, 50, rechteck, y);
 		y = y + 0.8;
 	} else {
-		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck*0.9);
+		arbeit_graphic.rect(50, 50, rechteck, rechteck*0.9);
 		
 		if (frameCount % 60 == 0 && timer2 > 0) { 
     		timer2 --;
@@ -285,16 +284,16 @@ function arbeit() {
 	
 	/////////////////////////////////////////////
 	// Eigentum
-		fill(255,200,0); // GELB
-		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck);
-		fill(255); // WHITE
+		arbeit_graphic.fill(255,200,0); // GELB
+		arbeit_graphic.rect(80, 80, rechteck, rechteck);
+		arbeit_graphic.fill(255); // WHITE
 	
 	// Animation Gehalt
 	if (z < rechteck*0.99) {
-		rect(width/4*3-rechteck/2, schieben1, rechteck, z);
+		arbeit_graphic.rect(80, 80, rechteck, z);
 		z = z + 1.2;
 	} else {
-		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck*0.99);
+		arbeit_graphic.rect(80, 80, rechteck, rechteck*0.99);
 		
 		if (frameCount % 60 == 0 && timer3 > 0) { 
     		timer3 --;
