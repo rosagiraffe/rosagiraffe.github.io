@@ -23,7 +23,7 @@ var schieben3 = 0;
 
 var haus_graphic;
 var carechain_graphic;
-
+var 
 /////////////////////////////////////////////
 //
 // Ende local Variablen
@@ -49,12 +49,13 @@ function setup() {
  	noCanvas();
 
 	haus_graphic = createGraphics(1024,600);
-	haus_graphic.parent('haus-container');
+	haus_graphic.parent("haus-container");
 
-	carechain_graphic = createGraphics(600,600);
-	carechain_graphic.parent('carechain-container');
+	carechain_graphic = createGraphics(1024,600);
+	carechain_graphic.parent("carechain-container");
 
-	//hier mehr grahic definieren
+	arbeit_graphic = createGraphics(1024,600);
+	arbeit_graphic.parent("arbeit-container");
 
 
 	frameRate(60);
@@ -82,7 +83,7 @@ function draw() {
 
 	// kacheln();
 	haus();
-	// arbeit();
+	arbeit();
 	carechain();
 	// vektor();
 	
@@ -217,95 +218,98 @@ function haus() {
 
 
 
-function kacheln(){
+// function kacheln(){
 
-	for (var y = 0; y < canvasLang; y = y + 87) {
-		for (var x = 0; x < canvasLang; x = x + 108) {
-		image(img, y, x);
+// 	for (var y = 0; y < canvasLang; y = y + 87) {
+// 		for (var x = 0; x < canvasLang; x = x + 108) {
+// 		image(img, y, x);
+// 		}
+// 	}
+// }
+
+function arbeit() {
+	noStroke();
+
+	/////////////////////////////////////////////
+	// Arbeitszeit
+
+	fill(255,200,0); //gelb
+	rect(width/4-rechteck/2, schieben1, rechteck, rechteck);
+
+	fill(255); //white
+
+	
+	// Animation Arbeitszeit
+	if (x > rechteck*(1/3)) {
+		rect(width/4-rechteck/2, schieben1, rechteck, x);
+		x = x - 0.3;
+	}	else{
+		rect(width/4-rechteck/2, schieben1, rechteck, rechteck*(1/3));
+		
+		if (frameCount % 60 == 0 && timer1 > 0) { 
+    		timer1 --;
+  		}
+  		if (timer1 == 0){
+			x = rechteck;
+			timer1 = 4;
 		}
 	}
+	
+	// Ende Arbeitszeit
+	/////////////////////////////////////////////
+	
+
+	/////////////////////////////////////////////
+	// Gehalt
+		fill(255,200,0); // GELB
+		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck);
+		fill(255); // WHITE
+	// Animation Arbeitszeit
+
+	if (y < rechteck*0.9) {
+		rect(width/4*2-rechteck/2, schieben1, rechteck, y);
+		y = y + 0.8;
+	} else {
+		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck*0.9);
+		
+		if (frameCount % 60 == 0 && timer2 > 0) { 
+    		timer2 --;
+  		}
+  		if (timer2 == 0){
+			y = 0;
+			timer2 = 7;
+		}
+	}
+	// Ende Gehalt
+	/////////////////////////////////////////////
+	
+	/////////////////////////////////////////////
+	// Eigentum
+		fill(255,200,0); // GELB
+		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck);
+		fill(255); // WHITE
+	
+	// Animation Gehalt
+	if (z < rechteck*0.99) {
+		rect(width/4*3-rechteck/2, schieben1, rechteck, z);
+		z = z + 1.2;
+	} else {
+		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck*0.99);
+		
+		if (frameCount % 60 == 0 && timer3 > 0) { 
+    		timer3 --;
+  		}
+  		if (timer3 == 0){
+			z = 0;
+			timer3 = 7;
+		}
+	}
+	// Ende Eigentum
+	/////////////////////////////////////////////
+
+	arbeit_graphic.style('display','block');
+
 }
-
-// function arbeit() {
-// 	noStroke();
-
-// 	/////////////////////////////////////////////
-// 	// Arbeitszeit
-
-// 	fill(255,200,0); //gelb
-// 	rect(width/4-rechteck/2, schieben1, rechteck, rechteck);
-
-// 	fill(255); //white
-
-	
-// 	// Animation Arbeitszeit
-// 	if (x > rechteck*(1/3)) {
-// 		rect(width/4-rechteck/2, schieben1, rechteck, x);
-// 		x = x - 0.3;
-// 	}	else{
-// 		rect(width/4-rechteck/2, schieben1, rechteck, rechteck*(1/3));
-		
-// 		if (frameCount % 60 == 0 && timer1 > 0) { 
-//     		timer1 --;
-//   		}
-//   		if (timer1 == 0){
-// 			x = rechteck;
-// 			timer1 = 4;
-// 		}
-// 	}
-	
-// 	// Ende Arbeitszeit
-// 	/////////////////////////////////////////////
-	
-
-// 	/////////////////////////////////////////////
-// 	// Gehalt
-// 		fill(255,200,0); // GELB
-// 		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck);
-// 		fill(255); // WHITE
-// 	// Animation Arbeitszeit
-
-// 	if (y < rechteck*0.9) {
-// 		rect(width/4*2-rechteck/2, schieben1, rechteck, y);
-// 		y = y + 0.8;
-// 	} else {
-// 		rect(width/4*2-rechteck/2, schieben1, rechteck, rechteck*0.9);
-		
-// 		if (frameCount % 60 == 0 && timer2 > 0) { 
-//     		timer2 --;
-//   		}
-//   		if (timer2 == 0){
-// 			y = 0;
-// 			timer2 = 7;
-// 		}
-// 	}
-// 	// Ende Gehalt
-// 	/////////////////////////////////////////////
-	
-// 	/////////////////////////////////////////////
-// 	// Eigentum
-// 		fill(255,200,0); // GELB
-// 		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck);
-// 		fill(255); // WHITE
-	
-// 	// Animation Gehalt
-// 	if (z < rechteck*0.99) {
-// 		rect(width/4*3-rechteck/2, schieben1, rechteck, z);
-// 		z = z + 1.2;
-// 	} else {
-// 		rect(width/4*3-rechteck/2, schieben1, rechteck, rechteck*0.99);
-		
-// 		if (frameCount % 60 == 0 && timer3 > 0) { 
-//     		timer3 --;
-//   		}
-//   		if (timer3 == 0){
-// 			z = 0;
-// 			timer3 = 7;
-// 		}
-// 	}
-// 	// Ende Eigentum
-// 	/////////////////////////////////////////////
-// }
 
 
 // function haus() {
@@ -385,141 +389,145 @@ function kacheln(){
 
 // }
 
-// function carechain() {
-// 	// 3. Häuschen die nur ein mal gemalt werden
-// 	fill(255);
-// 	noStroke();
+function carechain() {
+	// 3. Häuschen die nur ein mal gemalt werden
+	carechain_graphic.fill(255);
+	carechain_graphic.noStroke();
 
-// 	rect(width/4+60, 900+schieben3, rechteck, rechteck); //1.
-// 	triangle(width/4+60, 900+schieben3, width/4+60+rechteck/2, 850+schieben3, width/4+60+rechteck, 900+schieben3);
+	carechain_graphic.rect(20, 20, rechteck, rechteck); //1.
+	carechain_graphic.triangle(width/4+60, 900+schieben3, width/4+60+rechteck/2, 850+schieben3, width/4+60+rechteck, 900+schieben3);
 
-// 	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
-// 	triangle(width/4+120+rechteck, 900+schieben3, width/4+120+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+rechteck, 900+schieben3);
-// 	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
+	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
+	triangle(width/4+120+rechteck, 900+schieben3, width/4+120+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+rechteck, 900+schieben3);
+	rect(width/4+120+rechteck, 900+schieben3, rechteck, rechteck); //2. 
 
-// 	rect(width/4+120+rechteck+60+rechteck, 900+schieben3, rechteck, rechteck); //3.
-// 	triangle(width/4+120+rechteck+60+rechteck, 900+schieben3, width/4+120+rechteck+60+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+60+rechteck+rechteck, 900+schieben3);
+	rect(width/4+120+rechteck+60+rechteck, 900+schieben3, rechteck, rechteck); //3.
+	triangle(width/4+120+rechteck+60+rechteck, 900+schieben3, width/4+120+rechteck+60+rechteck+rechteck/2, 850+schieben3, width/4+120+rechteck+60+rechteck+rechteck, 900+schieben3);
 
-// 	// Linien
-// 	 // stroke(0);
-// 	 // strokeWeight(1);
-// 	 // line(250, 975, 350, 975);
-// 	 // line(460, 975, 560, 975);
-// 	 // line(670, 975, 770, 975);
+	// Linien
+	 // stroke(0);
+	 // strokeWeight(1);
+	 // line(250, 975, 350, 975);
+	 // line(460, 975, 560, 975);
+	 // line(670, 975, 770, 975);
 
-// 	// Wenn eventCounter = 0 zeichne Scene1
-// 	if(eventCounter == 0){
-// 		carechainScene1();
-// 	}
-// 	// Wenn eventCounter = 1 zeichne Scene1
-// 	if(eventCounter == 1){
-// 		carechainScene2();
-// 	}
-// 	// Wenn eventCounter = 2 zeichne Scene1
-// 	if(eventCounter == 2){
-// 		carechainScene3();
-// 	}
-// 	// Wenn eventCounter = 3 zeichne Scene1
-// 	if(eventCounter == 3){
-// 		carechainScene4();
-// 	}
-// }
+	// Wenn eventCounter = 0 zeichne Scene1
+	if(eventCounter == 0){
+		carechainScene1();
+	}
+	// Wenn eventCounter = 1 zeichne Scene1
+	if(eventCounter == 1){
+		carechainScene2();
+	}
+	// Wenn eventCounter = 2 zeichne Scene1
+	if(eventCounter == 2){
+		carechainScene3();
+	}
+	// Wenn eventCounter = 3 zeichne Scene1
+	if(eventCounter == 3){
+		carechainScene4();
+	}
+
+	carechain_graphic.style('display','block');
 
 
-// // function mousePressed() {
+}
+
+
+// function mousePressed() {
  	
-// //  	eventCounter++;
+//  	eventCounter++;
 
-// //  	if(eventCounter == 4){
-// //  		eventCounter = 0;
-// //  	}
+//  	if(eventCounter == 4){
+//  		eventCounter = 0;
+//  	}
 
-// // 	print('Clicks ' + eventCounter);
+// 	print('Clicks ' + eventCounter);
 
-// //}
+//}
 
-// function carechainScene1() {
+function carechainScene1() {
 
-// 	// 2. Kreis im 1. Häuschen
-// 	stroke(255,200,0);
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	// 2. Kreis im 1. Häuschen
+	stroke(255,200,0);
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
 
-// 	// 2. im 2. Häuschen
-// 	stroke(255,200,0);
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	// 2. im 2. Häuschen
+	stroke(255,200,0);
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
-// 	// 2. im 3. Häuschen
-// 	stroke(255,200,0);
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
-// }
+	// 2. im 3. Häuschen
+	stroke(255,200,0);
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+}
 
-// function carechainScene2() {
+function carechainScene2() {
 
-// 	// Kreis im 1. Häuschen
-// 	// stroke(255,200,0);
-// 	// noFill();
-//  // 	strokeWeight(2);
-// 	// circle(width/4+60+rechteck/2, 975, rechteck/2);
+	// Kreis im 1. Häuschen
+	// stroke(255,200,0);
+	// noFill();
+ // 	strokeWeight(2);
+	// circle(width/4+60+rechteck/2, 975, rechteck/2);
 
-// 	// Kreis im 2. Häuschen
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	// Kreis im 2. Häuschen
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
-// 	// 2. im 3. Häuschen
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+	// 2. im 3. Häuschen
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
 
-// 	fill(255, 200, 0);
-// 	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
-// }
+	fill(255, 200, 0);
+	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+}
 
-// function carechainScene3() {
+function carechainScene3() {
 
-// 	// 2. Kreis im 1. Häuschen
-// 	stroke(255,200,0);
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	// 2. Kreis im 1. Häuschen
+	stroke(255,200,0);
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
 
-// 	// 2. im 2. Häuschen
-// 	// stroke(255,200,0);
-// 	// noFill();
-//  // 	strokeWeight(2);
-//  // 	circle(width/4+60+rechteck/2+60+rechteck, 975, rechteck/2);
+	// 2. im 2. Häuschen
+	// stroke(255,200,0);
+	// noFill();
+ // 	strokeWeight(2);
+ // 	circle(width/4+60+rechteck/2+60+rechteck, 975, rechteck/2);
 
-// 	// 2. im 3. Häuschen
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
+	// 2. im 3. Häuschen
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975+schieben3, rechteck/2);
 
-// 	fill(255, 200, 0);
-// 	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
-// }
+	fill(255, 200, 0);
+	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+}
 
-// function carechainScene4() {
+function carechainScene4() {
 
-// 	// 2. Kreis im 1. Häuschen
-// 	stroke(255,200,0);
-// 	fill(255, 200, 0);
-// 	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
+	// 2. Kreis im 1. Häuschen
+	stroke(255,200,0);
+	fill(255, 200, 0);
+	circle(width/4+60+rechteck/2, 975+schieben3, rechteck/2);
 
-// 	// 2. im 2. Häuschen
-// 	fill(255, 200, 0);
-//  	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
+	// 2. im 2. Häuschen
+	fill(255, 200, 0);
+ 	circle(width/4+60+rechteck/2+60+rechteck, 975+schieben3, rechteck/2);
 
-// 	// 2. im 3. Häuschen
-// 	// stroke(255,200,0);
-// 	// noFill();
-//  // 	strokeWeight(2);
-//  // 	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975, rechteck/2);
-//  textSize(34);
-//  fill(0);
-//  //text("?", width/4+60+rechteck/2+60+rechteck+60+rechteck, 985);
+	// 2. im 3. Häuschen
+	// stroke(255,200,0);
+	// noFill();
+ // 	strokeWeight(2);
+ // 	circle(width/4+60+rechteck/2+60+rechteck+60+rechteck, 975, rechteck/2);
+ textSize(34);
+ fill(0);
+ //text("?", width/4+60+rechteck/2+60+rechteck+60+rechteck, 985);
 
-// 	fill(255, 200, 0);
-// 	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
-// }
+	fill(255, 200, 0);
+	circle(width/4-rechteck/2, 975+schieben3, rechteck/2);
+}
 
 
 function vektor() {
