@@ -5,7 +5,7 @@
 /////////////////////////////////////////////
 
 var rechteck = 150;
-var canvasLang = 4000;
+var canvasLang = 3900;
 
 var x = rechteck; // Frauen Arbeitszeit
 var y = 0; // Frauen Gehalt
@@ -31,9 +31,8 @@ var carechain_graphic;
 /////////////////////////////////////////////
 
 function preload() {
-// img = loadImage("assets/kachel.png");
 // img1 = loadImage("assets/head_line.png");
-// fonty = loadFont('assets/TabletGothicRegular.ttf');
+fonty = loadFont('assets/TabletGothicRegular.ttf');
 }
 
 /////////////////////////////////////////////
@@ -48,13 +47,13 @@ function setup() {
 	// canvas.parent('container')
  	noCanvas();
 
-	haus_graphic = createGraphics(1024,600);
+	haus_graphic = createGraphics(1024,330);
 	haus_graphic.parent("haus-container");
 
-	carechain_graphic = createGraphics(1024,600);
+	carechain_graphic = createGraphics(1024,250);
 	carechain_graphic.parent("carechain-container");
 
-	arbeit_graphic = createGraphics(1024,600);
+	arbeit_graphic = createGraphics(1024,200);
 	arbeit_graphic.parent("arbeit-container");
 
 
@@ -131,6 +130,7 @@ function draw() {
 
 
 function haus() {
+
 	//2. Im Haus und außer Haus
 	haus_graphic.noStroke();
 	haus_graphic.fill(255);
@@ -146,7 +146,8 @@ function haus() {
 	//2.
 
 	haus_graphic.stroke(0);
-	// haus_graphic.line(50, 100, 1024-50, 100);
+	haus_graphic.line(110, 160, 1024-110, 160);
+
 
 	//Haus
 	haus_graphic.noStroke();
@@ -250,6 +251,12 @@ function haus() {
 	// }
 	// }
 
+	haus_graphic.textFont(fonty);
+	haus_graphic.noStroke();
+	haus_graphic.fill(0);
+	haus_graphic.textSize(17);
+	haus_graphic.text('1737', 60, 165);
+	haus_graphic.text('1911', 1024-90, 165);
 	haus_graphic.style('display','block');
 
 
@@ -274,6 +281,7 @@ function haus() {
 
 function arbeit() {
 	arbeit_graphic.noStroke();
+
 
 
 	/////////////////////////////////////////////
@@ -436,6 +444,8 @@ function arbeit() {
 
 function carechain() {
 	// 3. Häuschen die nur ein mal gemalt werden
+
+
 	carechain_graphic.fill(255);
 	carechain_graphic.noStroke();
 
